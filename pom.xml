@@ -9,7 +9,7 @@
 	<artifactId>agastya-builder</artifactId>
 	<version>1.0.0</version>
 
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 
 	<name>Agastya Builder</name>
 	<description>Agastya Builder - Construction Company Website</description>

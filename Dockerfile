@@ -1,13 +1,18 @@
-# Use official OpenJDK base image
-FROM openjdk:17-jdk-slim
+# Stage 1: Build the project using Maven
+FROM maven:3.9.6-eclipse-temurin-17 AS builder
+WORKDIR /app
+COPY pom.xml .
+COPY src ./src
+RUN mvn clean package -DskipTests
 
-# Set working directory inside the container
+# Stage 2: Run the app with OpenJDK
+FROM openjdk:17-jdk-slim
 WORKDIR /app
 
-# Copy the JAR file from target folder into the container
-COPY target/agastya-builder-1.0.0.jar app.jar
+# Copy the built JAR from the builder stage
+COPY --from=builder /app/target/agastya-builder-1.0.0.jar app.jar
 
-# Expose port (match your application.properties)
+# Expose your app port (match application.properties)
 EXPOSE 8085
 
 # Run the JAR

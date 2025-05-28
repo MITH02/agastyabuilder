@@ -1,0 +1,11 @@
+com\agastyabuilders\RestServiceApplication.class
+com\agastyabuilders\config\CorsConfig.class
+com\agastyabuilders\dto\ContactInformationDTO.class
+com\agastyabuilders\validation\DynamicEmailValidator.class
+com\agastyabuilders\repository\ContactInformationRepository.class
+com\agastyabuilders\validation\ValidEmail.class
+com\agastyabuilders\config\RegexConfig.class
+com\agastyabuilders\service\ContactInformationService.class
+com\agastyabuilders\entity\ContactInformation.class
+com\agastyabuilders\controller\ContactInformationController.class
+com\agastyabuilders\exceptions\GlobalExceptionHandler.class

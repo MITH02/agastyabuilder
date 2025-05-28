@@ -9,8 +9,8 @@ RUN mvn clean package -DskipTests
 FROM openjdk:17-jdk-slim
 WORKDIR /app
 
-# Copy the built JAR from the builder stage
-COPY --from=builder /app/target/agastya-builder-1.0.0.jar app.jar
+# Copy the built JAR from the builder stage (using wildcard to avoid version issues)
+COPY --from=builder /app/target/*.jar app.jar
 
 # Expose your app port (match application.properties)
 EXPOSE 8085

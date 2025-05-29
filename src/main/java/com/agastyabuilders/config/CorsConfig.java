@@ -6,26 +6,28 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 
+import java.util.Arrays;
+
 @Configuration
-public class CorsConfig
-{
-    @Bean
-    public CorsFilter corsFilter()
-	{
-        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        CorsConfiguration config = new CorsConfiguration();
-        
-        config.addAllowedOrigin("http://localhost:3000");
+public class CorsConfig {
 
-		config.addAllowedOrigin("https://your-frontend.onrender.com");
-        
-        config.addAllowedMethod("*");
+	@Bean
+	public CorsFilter corsFilter() {
+		CorsConfiguration config = new CorsConfiguration();
 
-        config.addAllowedHeader("*");
-        
-        config.setAllowCredentials(true);
+		config.setAllowedOrigins(Arrays.asList(
+				"http://localhost:3000",
+				"https://agastyabuildersanddevelopers.onrender.com",
+				"https://agastyabuildersanddevelopers.com"
+		));
 
-        source.registerCorsConfiguration("/**", config);
-        return new CorsFilter(source);
-    }
+		config.setAllowCredentials(true);
+		config.addAllowedHeader("*");
+		config.addAllowedMethod("*");
+
+		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+		source.registerCorsConfiguration("/**", config);
+
+		return new CorsFilter(source);
+	}
 }

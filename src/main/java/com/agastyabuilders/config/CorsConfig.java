@@ -18,7 +18,8 @@ public class CorsConfig {
 		config.setAllowedOrigins(Arrays.asList(
 				"http://localhost:3000",
 				"https://agastyabuildersanddevelopers.onrender.com",
-				"https://agastyabuildersanddevelopers.com"
+				"https://agastyabuildersanddevelopers.com",
+				"https://www.agastyabuildersanddevelopers.com"
 		));
 
 		config.setAllowCredentials(true);
